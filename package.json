@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thuringia/aws-lambda-utils#readme",
   "devDependencies": {
-    "serverless": "^1.38.0"
+    "serverless": "^1.38.0",
+    "serverless-pseudo-parameters": "^2.4.0"
   }
 }
