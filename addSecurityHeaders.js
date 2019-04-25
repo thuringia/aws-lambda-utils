@@ -109,7 +109,7 @@ exports.handler = (event, context, callback) => {
       "child-src 'self'",
       "frame-src 'self'",
       "object-src 'none'",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/css https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/", // 'strict-dynamic' // 'unsafe-inline' needed for dynamic css // + styleSHAs.join(" ") // can't use because " Note that 'unsafe-inline' is ignored if either a hash or nonce value is present in the source list."
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/css https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css", // 'strict-dynamic' // 'unsafe-inline' needed for dynamic css // + styleSHAs.join(" ") // can't use because " Note that 'unsafe-inline' is ignored if either a hash or nonce value is present in the source list."
       "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
       "font-src 'self' data: https://fonts.gstatic.com https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/",
       "img-src 'self' https://images.ctfassets.net data:",
