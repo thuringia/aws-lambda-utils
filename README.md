@@ -1,12 +1,16 @@
 # aws-lambda-utils
 
+![](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
+
 A collection of helpful lambda functions
 
 ## `addSecurityHeaders`
 
 Upload addSecurityHeaders into aws lambda
 
-node js 8.10 handler: index.handler
+Node.js 12 handlers:
+
+- [`addSecurityHeaders`](./addSecurityHeaders.js)
 
 IMPORTANT: Use "US East (N. Virginia)" as Region for the lambda function!!!
 
