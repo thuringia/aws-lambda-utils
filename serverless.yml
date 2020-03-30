@@ -4,12 +4,18 @@ frameworkVersion: ">=1.0.0 <2.0.0"
 
 plugins:
   - serverless-pseudo-parameters
+  - serverless-prune-plugin
 
 provider:
   name: aws
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: us-east-1
+
+custom:
+  prune:
+    automatic: true
+    number: 2
 
 functions:
   addSecurityHeaders:
@@ -34,7 +40,7 @@ resources:
               Action: sts:AssumeRole
         # note that these rights are needed if you want your function to be able to communicate with resources within your vpc
         #ManagedPolicyArns:
-          #- arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+        #- arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
         Policies:
           - PolicyName: edgePolicy
             PolicyDocument:

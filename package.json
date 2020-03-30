@@ -4,7 +4,8 @@
   "description": "A collection of helpful lambda functions for other projects",
   "main": "index.js",
   "scripts": {
-    "deploy": "serverless deploy --force"
+    "deploy": "serverless deploy --force",
+    "fmt": "prettier --write \"./*.{js,json,yml,md}\""
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/thuringia/aws-lambda-utils#readme",
   "devDependencies": {
+    "prettier": "^2.0.2",
     "serverless": "^1.38.0",
+    "serverless-prune-plugin": "^1.4.2",
     "serverless-pseudo-parameters": "^2.4.0"
   }
 }

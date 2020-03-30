@@ -21,20 +21,20 @@ exports.handler = (event, context, callback) => {
         console.error(JSON.stringify(event.Records[0].cf));
         return res({
           scriptSHAs: ["'unsafe-inline'"],
-          styleSHAs: ["'unsafe-inline'"]
+          styleSHAs: ["'unsafe-inline'"],
         });
       }
       http
-        .get("http://" + s3URL + "/SHAs.json", resp => {
+        .get("http://" + s3URL + "/SHAs.json", (resp) => {
           let data = "";
-          resp.on("data", chunk => {
+          resp.on("data", (chunk) => {
             data += chunk;
           });
           resp.on("end", () => {
             res(JSON.parse(data));
           });
         })
-        .on("error", err => {
+        .on("error", (err) => {
           rej(err);
         });
     });
@@ -44,22 +44,22 @@ exports.handler = (event, context, callback) => {
   headers["strict-transport-security"] = [
     {
       key: "Strict-Transport-Security",
-      value: "max-age=63072000; includeSubdomains; preload"
-    }
+      value: "max-age=63072000; includeSubdomains; preload",
+    },
   ];
   headers["feature-policy"] = [{ key: "Feature-Policy", value: fp.join("; ") }];
   headers["x-content-type-options"] = [
-    { key: "X-Content-Type-Options", value: "nosniff" }
+    { key: "X-Content-Type-Options", value: "nosniff" },
   ];
   headers["x-frame-options"] = [{ key: "X-Frame-Options", value: "DENY" }];
   headers["x-xss-protection"] = [
     {
       key: "X-XSS-Protection",
-      value: "1; mode=block; report=" + reporturiurl + "/r/d/xss/enforce"
-    }
+      value: "1; mode=block; report=" + reporturiurl + "/r/d/xss/enforce",
+    },
   ];
   headers["referrer-policy"] = [
-    { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" }
+    { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   ];
 
   headers["report-to"] = [
@@ -69,9 +69,9 @@ exports.handler = (event, context, callback) => {
         group: "default",
         max_age: 31536000,
         endpoints: [{ url: "" + reporturiurl + "/a/d/g" }],
-        include_subdomains: true
-      })
-    }
+        include_subdomains: true,
+      }),
+    },
   ];
   headers["nel"] = [
     {
@@ -79,9 +79,9 @@ exports.handler = (event, context, callback) => {
       value: JSON.stringify({
         report_to: "default",
         max_age: 31536000,
-        include_subdomains: true
-      })
-    }
+        include_subdomains: true,
+      }),
+    },
   ];
   headers["expect-ct"] = [
     {
@@ -89,11 +89,11 @@ exports.handler = (event, context, callback) => {
       value:
         'max-age=86400, enforce, report-uri="' +
         reporturiurl +
-        '/r/d/ct/enforce"'
-    }
+        '/r/d/ct/enforce"',
+    },
   ];
 
-  getSHAs().then(shas => {
+  getSHAs().then((shas) => {
     const scriptSHAs = shas.scriptSHAs;
     const styleSHAs = shas.styleSHAs;
     //Set new headers
@@ -118,11 +118,11 @@ exports.handler = (event, context, callback) => {
       "manifest-src 'self'",
       "prefetch-src 'self'",
       // "sandbox allow-forms allow-orientation-lock allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-top-navigation",
-      "block-all-mixed-content"
+      "block-all-mixed-content",
       //"report-uri " + reporturiurl + "/r/d/csp/enforce"
     ];
     headers["content-security-policy"] = [
-      { key: "Content-Security-Policy", value: csps.join("; ") }
+      { key: "Content-Security-Policy", value: csps.join("; ") },
     ];
     //Return modified response
     callback(null, response);
