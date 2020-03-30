@@ -3,7 +3,7 @@ jobs:
   deploy:
     working_directory: ~/repo
     docker:
-      - image: node:10.14.0
+      - image: node:12
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
