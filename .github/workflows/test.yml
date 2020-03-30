@@ -1,0 +1,27 @@
+name: Test package
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps::boom:
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Prepare Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    
+    
+    - name: Install packages
+      run: yarn install
+      
+      
+    - name: Package workflow
+      run: yarn serverless package
