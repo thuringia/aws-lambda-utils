@@ -1,6 +1,7 @@
 # aws-lambda-utils
 
 ![](https://github.com/thuringia/aws-lambda-utils/workflows/Deploy%20helpers/badge.svg?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/thuringia/aws-lambda-utils/badge.svg)](https://snyk.io/test/github/thuringia/aws-lambda-utils)
 
 A collection of helpful lambda functions
 
