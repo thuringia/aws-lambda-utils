@@ -1,6 +1,6 @@
 # aws-lambda-utils
 
-![](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
+![](https://github.com/thuringia/aws-lambda-utils/workflows/Deploy%20helpers/badge.svg?branch=master)
 
 A collection of helpful lambda functions
 
