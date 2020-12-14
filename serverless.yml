@@ -1,6 +1,6 @@
 service: helper-lambdas
 
-frameworkVersion: ">=1.0.0 <2.0.0"
+frameworkVersion: ">=2.0.0 <3.0.0"
 
 plugins:
   - serverless-pseudo-parameters
