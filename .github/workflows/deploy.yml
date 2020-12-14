@@ -21,7 +21,7 @@ jobs:
         aws-region: us-east-1
     
     - name: Prepare Node.js
-      uses: actions/setup-node@v2.1.1
+      uses: actions/setup-node@v2.1.2
       with:
         node-version: '12.x'
     
